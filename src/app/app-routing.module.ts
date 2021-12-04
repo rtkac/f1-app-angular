@@ -11,15 +11,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () =>
-          import('./containers/dashboard/dashboard.module').then(
-            (m) => m.DashboardModule
-          ),
+        loadChildren: () => import('./containers/dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
       {
         path: 'teams',
-        loadChildren: () =>
-          import('./containers/teams/teams.module').then((m) => m.TeamsModule),
+        loadChildren: () => import('./containers/teams/teams.module').then((m) => m.TeamsModule),
       },
     ],
   },
@@ -29,17 +25,14 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
-        loadChildren: () =>
-          import('./containers/login/login.module').then((m) => m.LoginModule),
+        loadChildren: () => import('./containers/login/login.module').then((m) => m.LoginModule),
       },
     ],
   },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-  ],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

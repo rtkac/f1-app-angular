@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    private store: Store<fromApp.AppState>
+    private store: Store<fromApp.AppState>,
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
           },
           () => {
             this.isInitError = true;
-          }
+          },
         );
       } else {
         this.isInitLoading = false;

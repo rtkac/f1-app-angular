@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor,
-} from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -16,10 +11,7 @@ import { environment } from '../../environments/environment';
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
-  intercept(
-    request: HttpRequest<unknown>,
-    next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const requestUrl = request.url;
     const token = this.authService.authToken;
 
@@ -31,10 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(authRequest);
       } else {
         const sportsApiRequest = request.clone({
-          headers: request.headers.set(
-            'x-apisports-key',
-            environment.APISPORTS_KEY
-          ),
+          headers: request.headers.set('x-apisports-key', environment.APISPORTS_KEY),
         });
         return next.handle(sportsApiRequest);
       }
@@ -45,7 +34,7 @@ export class AuthInterceptor implements HttpInterceptor {
           this.authService.logout();
         }
         return throwError(() => error);
-      })
+      }),
     );
   }
 }

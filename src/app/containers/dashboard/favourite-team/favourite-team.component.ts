@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-favourite-team',
   templateUrl: './favourite-team.component.html',
-  styleUrls: ['./favourite-team.component.scss']
+  styleUrls: ['./favourite-team.component.scss'],
 })
 export class FavouriteTeamComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

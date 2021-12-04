@@ -9,7 +9,7 @@ import * as fromApp from '../../../store/app.reducer';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent implements OnInit {
-  userName: string = '';
+  userName = '';
 
   constructor(private store: Store<fromApp.AppState>) {}
 

@@ -9,10 +9,7 @@ const initialState: State = {
   user: null,
 };
 
-export function userReducer(
-  state = initialState,
-  action: UserActions.UserActions
-) {
+export function userReducer(state = initialState, action: UserActions.UserActions) {
   switch (action.type) {
     case UserActions.SAVE_USER:
       return {

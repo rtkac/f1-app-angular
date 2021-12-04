@@ -10,9 +10,7 @@ import { Authorized, Login } from '../models/auth.model';
   providedIn: 'root',
 })
 export class AuthService {
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    false
-  );
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) {
     if (localStorage.getItem('token')) {

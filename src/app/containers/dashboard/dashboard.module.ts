@@ -14,9 +14,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule.forChild([
-      { path: '', component: DashboardContainer, canActivate: [AuthGuard] },
-    ]),
+    RouterModule.forChild([{ path: '', component: DashboardContainer, canActivate: [AuthGuard] }]),
   ],
   exports: [RouterModule],
 })

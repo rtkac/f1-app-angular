@@ -8,25 +8,11 @@
       </div>
     </div>
     <div class="header-buttons" *ngIf="isLoggedIn">
-      <button
-        mat-icon-button
-        color="accent"
-        aria-label="Example icon button with an account icon"
-        routerLink="profile"
-      >
+      <button mat-icon-button color="accent" aria-label="Example icon button with an account icon" routerLink="profile">
         <mat-icon>account_circle</mat-icon>
       </button>
-      <button
-        mat-flat-button
-        routerLink="login"
-        *ngIf="isLoggedIn"
-        (click)="onLogout()"
-      >
-        Logout
-      </button>
+      <button mat-flat-button routerLink="login" *ngIf="isLoggedIn" (click)="onLogout()">Logout</button>
     </div>
-    <button mat-flat-button routerLink="login" *ngIf="!isLoggedIn">
-      Login
-    </button>
+    <button mat-flat-button routerLink="login" *ngIf="!isLoggedIn">Login</button>
   </div>
 </mat-toolbar>
