@@ -1,0 +1,200 @@
+{
+  "login": {
+    "email": "test@example.com",
+    "password": "123456"
+  },
+  "user": {
+    "firstName": "John",
+    "surname": "Doe",
+    "email": "test@example.com",
+    "favouriteTeamId": 1
+  },
+  "teams": {
+    "get": "teams",
+    "parameters": [],
+    "errors": [],
+    "results": 18,
+    "response": [
+      {
+        "id": 1,
+        "name": "Red Bull Racing",
+        "logo": "https://media.api-sports.io/formula-1/teams/1.png",
+        "president": "Dietrich Mateschitz",
+        "director": "Christian Horner",
+        "technical_manager": "Pierre Wach\u00e9",
+        "engine": "Honda V6 turbo hybride",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 2,
+        "name": "McLaren Racing",
+        "logo": "https://media.api-sports.io/formula-1/teams/2.png",
+        "president": "Zak Brown",
+        "director": "Andreas Seidl",
+        "technical_manager": "James Key",
+        "engine": "Renault V6 turbo hybride",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 3,
+        "name": "Scuderia Ferrari",
+        "logo": "https://media.api-sports.io/formula-1/teams/3.png",
+        "president": "John Elkann",
+        "director": "Mattia Binotto",
+        "technical_manager": "Simone Resta",
+        "engine": "Ferrari V6 turbo hybride",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 4,
+        "name": "Force India",
+        "logo": "https://media.api-sports.io/formula-1/teams/4.png",
+        "president": "Subrata Roy, Vijay Mallya",
+        "director": "Robert Fernley",
+        "technical_manager": "Andrew Green",
+        "engine": "Ferrari V8, Mercedes V8, Mercedes V6 turbo",
+        "tyres": " \tBridgestone, Pirelli"
+      },
+      {
+        "id": 5,
+        "name": "Mercedes-AMG Petronas",
+        "logo": "https://media.api-sports.io/formula-1/teams/5.png",
+        "president": "Markus Sch\u00e4fer",
+        "director": "Toto Wolff",
+        "technical_manager": "James Allison",
+        "engine": "Mercedes V6 turbo hybride",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 6,
+        "name": "Lotus F1 Team",
+        "logo": "https://media.api-sports.io/formula-1/teams/6.png",
+        "president": "G\u00e9rard Lopez, \u00c9ric Lux,Andrew Ruhan",
+        "director": "\u00c9ric Boullier, Matthew Carter",
+        "technical_manager": "James Allison, Nick Chester",
+        "engine": "Mercedes V6",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 7,
+        "name": "Scuderia AlphaTauri Honda",
+        "logo": "https://media.api-sports.io/formula-1/teams/7.png",
+        "president": "Dietrich Mateschitz",
+        "director": "Franz Tost",
+        "technical_manager": "Jody Egginton",
+        "engine": "Honda V6 turbo hybride",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 8,
+        "name": "Sauber F1 Team",
+        "logo": "https://media.api-sports.io/formula-1/teams/8.png",
+        "president": "Pascal Picci",
+        "director": "Fr\u00e9d\u00e9ric Vasseur",
+        "technical_manager": "Simone Resta",
+        "engine": "Ferrari V6 turbo Type 062 EVO",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 9,
+        "name": "Manor Marussia F1 Team",
+        "logo": "https://media.api-sports.io/formula-1/teams/9.png",
+        "president": "Stephen Fitzpatrick",
+        "director": "Abdulla Boulsien",
+        "technical_manager": "John McQuilliam",
+        "engine": "Cosworth, Ferrari",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 10,
+        "name": "Caterham F1 Team",
+        "logo": "https://media.api-sports.io/formula-1/teams/10.png",
+        "president": "Tony Fernandes, Graham Macdonald, Colin Kolles, Finbarr O'Connell",
+        "director": "Riad Asmat, Steve Nielsen, Cyril Abiteboul, Christijan Albers, Manfredi Ravetto",
+        "technical_manager": "Mike Gascoyne, Mark Smith, John Iley",
+        "engine": "Renault",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 11,
+        "name": "HRT Formula One Team",
+        "logo": "https://media.api-sports.io/formula-1/teams/11.png",
+        "president": "Saul Ruiz de Marcos",
+        "director": "Luis P\u00e9rez-Sala",
+        "technical_manager": "Toni Cuquerella",
+        "engine": "Cosworth",
+        "tyres": "Bridgestone, Pirelli"
+      },
+      {
+        "id": 12,
+        "name": "Williams F1 Team",
+        "logo": "https://media.api-sports.io/formula-1/teams/12.png",
+        "president": "Frank Williams, Claire Williams",
+        "director": null,
+        "technical_manager": "Simon Roberts",
+        "engine": "Mercedes V6 turbo hybride M11 EQ Power+",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 13,
+        "name": "Alpine F1 Team",
+        "logo": "https://media.api-sports.io/formula-1/teams/13.png",
+        "president": "Alain Prost, J\u00e9r\u00f4me Stoll ",
+        "director": "Cyril Abiteboul",
+        "technical_manager": "Pat Fry",
+        "engine": "Renault V6 turbo hybride",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 14,
+        "name": "Haas F1 Team",
+        "logo": "https://media.api-sports.io/formula-1/teams/14.png",
+        "president": "Gene Haas",
+        "director": "G\u00fcnther Steiner",
+        "technical_manager": "Rob Taylor",
+        "engine": "Ferrari V6 turbo hybride",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 15,
+        "name": "Virgin Racing",
+        "logo": "https://media.api-sports.io/formula-1/teams/15.png",
+        "president": "Richard Branson",
+        "director": "Alex Tai",
+        "technical_manager": null,
+        "engine": "Spark SRT_01E Renault",
+        "tyres": "Michelin"
+      },
+      {
+        "id": 16,
+        "name": "Manor Racing",
+        "logo": "https://media.api-sports.io/formula-1/teams/16.png",
+        "president": "Stephen Fitzpatrick",
+        "director": "Thomas Mayer",
+        "technical_manager": "John McQuilliam, Nikolas Tombazis",
+        "engine": "Mercedes V6 turbo hybride",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 17,
+        "name": "Aston Martin F1 Team",
+        "logo": "https://media.api-sports.io/formula-1/teams/17.png",
+        "president": "Lawrence Stroll",
+        "director": "Otmar Szafnauer ",
+        "technical_manager": "Andrew Green",
+        "engine": "Mercedes V6 turbo hybride M11 EQ Power+",
+        "tyres": "Pirelli"
+      },
+      {
+        "id": 18,
+        "name": "Alfa Romeo",
+        "logo": "https://media.api-sports.io/formula-1/teams/18.png",
+        "president": "Pascal Picci",
+        "director": "Fr\u00e9d\u00e9ric Vasseur",
+        "technical_manager": "Jan Monchaux",
+        "engine": "Ferrari",
+        "tyres": "Pirelli"
+      }
+    ]
+  }
+}

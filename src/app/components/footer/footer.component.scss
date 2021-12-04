@@ -1,0 +1,7 @@
+@import "variables";
+
+footer {
+  text-align: center;
+  background-color: mat-color($grey_light);
+  padding: $padding;
+}

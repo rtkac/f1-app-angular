@@ -1,0 +1,26 @@
+@import "variables";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 1200px;
+  margin: 0 auto;
+
+  &-menu {
+    display: flex;
+    align-items: center;
+    &-items {
+      margin-left: $padding;
+    }
+  }
+
+  &-buttons {
+    .mat-icon-button {
+      margin-right: $padding;
+    }
+  }
+}
+.header-spacer {
+  flex: 1 1 auto;
+}

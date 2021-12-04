@@ -1,0 +1,11 @@
+@import "variables";
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  padding: $padding 0;
+
+  &-title {
+    padding: 10px 0;
+  }
+}

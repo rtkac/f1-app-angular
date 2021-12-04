@@ -1,0 +1,12 @@
+@import "~@angular/material/theming";
+// Theme configuration
+$primary: mat-palette($mat-deep-purple);
+$accent: mat-palette($mat-amber, A200, A100, A400);
+$warn: mat-palette($mat-red);
+$orange: mat-palette($mat-orange);
+$grey: mat-palette($mat-grey);
+$grey_light: mat-palette($mat-grey, A200, A100, A400);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+$padding: 16px;
