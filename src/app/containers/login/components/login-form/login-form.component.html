@@ -6,16 +6,16 @@
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Enter email" formControlName="email" />
-        <mat-error *ngIf="email.errors?.['required']"> Email is <strong>required</strong> </mat-error>
-        <mat-error *ngIf="email.errors?.['email']"> Please enter a valid email address </mat-error>
+        <mat-error *ngIf="email?.errors?.['required']"> Email is <strong>required</strong> </mat-error>
+        <mat-error *ngIf="email?.errors?.['email']"> Please enter a valid email address </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
         <input matInput placeholder="Enter password" type="password" formControlName="password" />
-        <mat-error *ngIf="password.errors?.['required']"> Password is <strong>required</strong> </mat-error>
-        <mat-error *ngIf="password.errors?.['minlength']">
+        <mat-error *ngIf="password?.errors?.['required']"> Password is <strong>required</strong> </mat-error>
+        <mat-error *ngIf="password?.errors?.['minlength']">
           Minimum of
-          {{ password.errors?.['minlength']['requiredLength'] }} characters is required
+          {{ password?.errors?.['minlength']['requiredLength'] }} characters is required
         </mat-error>
       </mat-form-field>
       <button mat-flat-button color="primary">

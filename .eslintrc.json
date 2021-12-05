@@ -17,6 +17,7 @@
         "argsIgnorePattern": "_"
       }
     ],
+    "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/array-type": "error"
   }
 }

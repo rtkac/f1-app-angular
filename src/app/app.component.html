@@ -1,12 +1,14 @@
 <div class="app-component">
-  <app-header></app-header>
-  <div class="app-main">
-    <div *ngIf="isInitLoading && !isInitError">
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-      <app-init-loader></app-init-loader>
-    </div>
-    <app-init-error *ngIf="isInitError"></app-init-error>
-    <router-outlet *ngIf="!isInitLoading && !isInitError"></router-outlet>
+  <div *ngIf="isInitLoading">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <app-init-loader></app-init-loader>
   </div>
-  <app-footer></app-footer>
+  <app-init-error *ngIf="isInitError"></app-init-error>
+  <ng-container *ngIf="!isInitLoading && !isInitError">
+    <app-header></app-header>
+    <div class="app-main">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </ng-container>
 </div>

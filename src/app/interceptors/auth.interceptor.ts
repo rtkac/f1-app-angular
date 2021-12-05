@@ -4,7 +4,6 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { AuthService } from '../services/auth.service';
-import { userEndpoint } from '../config/endopoints';
 import { environment } from '../../environments/environment';
 
 @Injectable()
