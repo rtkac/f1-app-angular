@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
@@ -12,7 +13,8 @@ import * as UserActions from './store/user/user.actions';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+  loggedInSubscription = new Subscription();
   isInitLoading = true;
   isInitError = false;
 
@@ -23,7 +25,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authService.isUserLoggedIn.subscribe((loggedIn) => {
+    this.loggedInSubscription = this.authService.isUserLoggedIn.subscribe((loggedIn) => {
       this.isInitLoading = true;
       if (loggedIn) {
         this.userService.getUser().subscribe(
@@ -42,5 +44,9 @@ export class AppComponent implements OnInit {
         this.isInitLoading = false;
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.loggedInSubscription.unsubscribe();
   }
 }

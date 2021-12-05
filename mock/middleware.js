@@ -6,7 +6,7 @@ module.exports = function (req, res, next) {
 
   // simulate delay
   setTimeout(() => {
-    // if (req.url === "/user") {
+    // if (req.url === '/user') {
     //   return res.sendStatus(500);
     // }
     if (req.url === '/login') {

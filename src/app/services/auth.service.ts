@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 
 import { loginEndpoint } from '../config/endopoints';
 import { Authorized, Login } from '../models/auth.model';
@@ -18,20 +18,28 @@ export class AuthService {
     }
   }
 
-  login({ email, password }: Login): void {
-    this.http.post<any>(loginEndpoint, { email, password }).subscribe({
-      next: (res: Authorized) => {
+  login({ email, password }: Login) {
+    return this.http.post<any>(loginEndpoint, { email, password }).pipe(
+      map((res: Authorized) => {
         localStorage.setItem('token', res.token);
         this.router.navigate(['/']);
         this.loggedIn.next(true);
-      },
-      error: (err) => console.log(err),
-    });
+      }),
+      catchError(this.handleError),
+    );
   }
 
   logout(): void {
     localStorage.removeItem('token');
     this.loggedIn.next(false);
+  }
+
+  handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage = error.message;
+    if (error.status === 401) {
+      errorMessage = 'Wrong email or password!';
+    }
+    return throwError(() => errorMessage);
   }
 
   get isUserLoggedIn() {
