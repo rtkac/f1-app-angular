@@ -2,12 +2,23 @@ import { Action } from '@ngrx/store';
 
 import { User } from 'src/app/models/user.model';
 
-export const SAVE_USER = '[User] Save User';
+export const PUT_USER_TRIGGERED = '[User] Put User Triggered';
+export const PUT_USER_SUCCESS = '[User] Put User Success';
+export const PUT_USER_FAILED = '[User] Put User Failed';
 
-export class SaveUser implements Action {
-  readonly type = SAVE_USER;
+export class PutUser implements Action {
+  readonly type = PUT_USER_TRIGGERED;
 
-  constructor(public payload: User) {}
+  constructor(public payload: number) {}
 }
 
-export type UserActions = SaveUser;
+export class PutUserSuccess implements Action {
+  readonly type = PUT_USER_SUCCESS;
+  constructor(public payload: { user: User }) {}
+}
+
+export class PutUserFailed implements Action {
+  readonly type = PUT_USER_FAILED;
+}
+
+export type UserActions = PutUser | PutUserSuccess | PutUserFailed;

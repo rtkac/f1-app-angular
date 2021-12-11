@@ -3,6 +3,7 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { NotFoundLayoutComponent } from './layouts/not-found-layout/not-found-layout.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,16 @@ const routes: Routes = [
       {
         path: 'login',
         loadChildren: () => import('./containers/login/login.module').then((m) => m.LoginModule),
+      },
+    ],
+  },
+  {
+    path: '',
+    component: NotFoundLayoutComponent,
+    children: [
+      {
+        path: '**',
+        loadChildren: () => import('./containers/not-found/not-found.module').then((m) => m.NotFoundModule),
       },
     ],
   },

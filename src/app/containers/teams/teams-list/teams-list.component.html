@@ -1,0 +1,62 @@
+<div class="container container--primary">
+  <div class="loading" *ngIf="isLoading && !isLoaded && !error">
+    <mat-spinner [diameter]="70"></mat-spinner>
+  </div>
+
+  <app-init-error *ngIf="!!error" errorMessage="{{ error }}"></app-init-error>
+
+  <table mat-table [dataSource]="teams!" class="mat-elevation-z8" *ngIf="teams?.length">
+    <ng-container matColumnDef="logo">
+      <th mat-header-cell *matHeaderCellDef>Logo</th>
+      <td mat-cell *matCellDef="let team"><img src="{{ team.logo }}" alt="{{ team.name }}" /></td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let team">{{ team.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="president">
+      <th mat-header-cell *matHeaderCellDef>President</th>
+      <td mat-cell *matCellDef="let team">{{ team.president }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="director">
+      <th mat-header-cell *matHeaderCellDef>Director</th>
+      <td mat-cell *matCellDef="let team">{{ team.director }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Favourite</th>
+      <td mat-cell *matCellDef="let team">
+        <span
+          (mouseover)="changeIcon(true, team.id)"
+          (mouseout)="changeIcon(false, team.id)"
+          (click)="setAsFavourite($event, team.id)"
+        >
+          <mat-icon
+            color="warn"
+            *ngIf="
+              favouriteTeamId !== team.id &&
+              (!canChangeIcon.show || (canChangeIcon.id !== team.id && canChangeIcon.show))
+            "
+            >favorite_border</mat-icon
+          >
+          <mat-icon
+            color="warn"
+            *ngIf="favouriteTeamId !== team.id && canChangeIcon.id === team.id && canChangeIcon.show"
+            >favorite</mat-icon
+          >
+        </span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      (click)="handleRowClick(row)"
+      *matRowDef="let row; columns: displayedColumns"
+      [ngClass]="{ 'fav-team': favouriteTeamId === row.id }"
+    ></tr>
+  </table>
+</div>

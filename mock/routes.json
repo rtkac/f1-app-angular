@@ -1,5 +1,6 @@
 {
-  "/api/public/login": "/login",
-  "/api/public/user": "/user",
-  "/api/public/teams": "/teams"
+  "login": "/login",
+  "user": "/user",
+  "teams": "/teams",
+  "rankings-teams/:id": "/rankings-teams/:id"
 }

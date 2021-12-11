@@ -5,9 +5,9 @@
   },
   "user": {
     "firstName": "John",
-    "surname": "Doe",
+    "surName": "Doe",
     "email": "test@example.com",
-    "favouriteTeamId": 1
+    "favouriteTeamId": 7
   },
   "teams": {
     "get": "teams",
@@ -21,7 +21,7 @@
         "logo": "https://media.api-sports.io/formula-1/teams/1.png",
         "president": "Dietrich Mateschitz",
         "director": "Christian Horner",
-        "technical_manager": "Pierre Wach\u00e9",
+        "technical_manager": "Pierre Waché",
         "engine": "Honda V6 turbo hybride",
         "tyres": "Pirelli"
       },
@@ -59,7 +59,7 @@
         "id": 5,
         "name": "Mercedes-AMG Petronas",
         "logo": "https://media.api-sports.io/formula-1/teams/5.png",
-        "president": "Markus Sch\u00e4fer",
+        "president": "Markus Schäfer",
         "director": "Toto Wolff",
         "technical_manager": "James Allison",
         "engine": "Mercedes V6 turbo hybride",
@@ -69,8 +69,8 @@
         "id": 6,
         "name": "Lotus F1 Team",
         "logo": "https://media.api-sports.io/formula-1/teams/6.png",
-        "president": "G\u00e9rard Lopez, \u00c9ric Lux,Andrew Ruhan",
-        "director": "\u00c9ric Boullier, Matthew Carter",
+        "president": "Gérard Lopez, Éric Lux,Andrew Ruhan",
+        "director": "Éric Boullier, Matthew Carter",
         "technical_manager": "James Allison, Nick Chester",
         "engine": "Mercedes V6",
         "tyres": "Pirelli"
@@ -90,7 +90,7 @@
         "name": "Sauber F1 Team",
         "logo": "https://media.api-sports.io/formula-1/teams/8.png",
         "president": "Pascal Picci",
-        "director": "Fr\u00e9d\u00e9ric Vasseur",
+        "director": "Frédéric Vasseur",
         "technical_manager": "Simone Resta",
         "engine": "Ferrari V6 turbo Type 062 EVO",
         "tyres": "Pirelli"
@@ -120,7 +120,7 @@
         "name": "HRT Formula One Team",
         "logo": "https://media.api-sports.io/formula-1/teams/11.png",
         "president": "Saul Ruiz de Marcos",
-        "director": "Luis P\u00e9rez-Sala",
+        "director": "Luis Pérez-Sala",
         "technical_manager": "Toni Cuquerella",
         "engine": "Cosworth",
         "tyres": "Bridgestone, Pirelli"
@@ -139,7 +139,7 @@
         "id": 13,
         "name": "Alpine F1 Team",
         "logo": "https://media.api-sports.io/formula-1/teams/13.png",
-        "president": "Alain Prost, J\u00e9r\u00f4me Stoll ",
+        "president": "Alain Prost, Jérôme Stoll ",
         "director": "Cyril Abiteboul",
         "technical_manager": "Pat Fry",
         "engine": "Renault V6 turbo hybride",
@@ -150,7 +150,7 @@
         "name": "Haas F1 Team",
         "logo": "https://media.api-sports.io/formula-1/teams/14.png",
         "president": "Gene Haas",
-        "director": "G\u00fcnther Steiner",
+        "director": "Günther Steiner",
         "technical_manager": "Rob Taylor",
         "engine": "Ferrari V6 turbo hybride",
         "tyres": "Pirelli"
@@ -190,11 +190,800 @@
         "name": "Alfa Romeo",
         "logo": "https://media.api-sports.io/formula-1/teams/18.png",
         "president": "Pascal Picci",
-        "director": "Fr\u00e9d\u00e9ric Vasseur",
+        "director": "Frédéric Vasseur",
         "technical_manager": "Jan Monchaux",
         "engine": "Ferrari",
         "tyres": "Pirelli"
       }
     ]
-  }
+  },
+  "rankings-teams": [
+    {
+      "id": "2021",
+      "get": "rankings",
+      "parameters": {
+        "season": "2021"
+      },
+      "errors": [],
+      "results": 10,
+      "response": [
+        {
+          "position": 1,
+          "team": {
+            "id": 5,
+            "name": "Mercedes-AMG Petronas",
+            "logo": "https://media.api-sports.io/formula-1/teams/5.png"
+          },
+          "points": 588,
+          "season": 2021
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 1,
+            "name": "Red Bull Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/1.png"
+          },
+          "points": 560,
+          "season": 2021
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 3,
+            "name": "Scuderia Ferrari",
+            "logo": "https://media.api-sports.io/formula-1/teams/3.png"
+          },
+          "points": 308,
+          "season": 2021
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 2,
+            "name": "McLaren Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/2.png"
+          },
+          "points": 269,
+          "season": 2021
+        },
+        {
+          "position": 5,
+          "team": {
+            "id": 13,
+            "name": "Alpine F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/13.png"
+          },
+          "points": 149,
+          "season": 2021
+        },
+        {
+          "position": 6,
+          "team": {
+            "id": 7,
+            "name": "Scuderia AlphaTauri Honda",
+            "logo": "https://media.api-sports.io/formula-1/teams/7.png"
+          },
+          "points": 120,
+          "season": 2021
+        },
+        {
+          "position": 7,
+          "team": {
+            "id": 17,
+            "name": "Aston Martin F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/17.png"
+          },
+          "points": 77,
+          "season": 2021
+        },
+        {
+          "position": 8,
+          "team": {
+            "id": 12,
+            "name": "Williams F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/12.png"
+          },
+          "points": 23,
+          "season": 2021
+        },
+        {
+          "position": 9,
+          "team": {
+            "id": 18,
+            "name": "Alfa Romeo",
+            "logo": "https://media.api-sports.io/formula-1/teams/18.png"
+          },
+          "points": 13,
+          "season": 2021
+        },
+        {
+          "position": 10,
+          "team": {
+            "id": 14,
+            "name": "Haas F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/14.png"
+          },
+          "points": 0,
+          "season": 2021
+        }
+      ]
+    },
+    {
+      "id": "2020",
+      "get": "rankings",
+      "parameters": {
+        "season": "2020"
+      },
+      "errors": [],
+      "results": 10,
+      "response": [
+        {
+          "position": 1,
+          "team": {
+            "id": 5,
+            "name": "Mercedes-AMG Petronas",
+            "logo": "https://media.api-sports.io/formula-1/teams/5.png"
+          },
+          "points": 0,
+          "season": 2020
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 1,
+            "name": "Red Bull Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/1.png"
+          },
+          "points": 0,
+          "season": 2020
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 2,
+            "name": "McLaren Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/2.png"
+          },
+          "points": 0,
+          "season": 2020
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 17,
+            "name": "Aston Martin F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/17.png"
+          },
+          "points": 0,
+          "season": 2020
+        },
+        {
+          "position": 5,
+          "team": {
+            "id": 13,
+            "name": "Alpine F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/13.png"
+          },
+          "points": 0,
+          "season": 2020
+        },
+        {
+          "position": 6,
+          "team": {
+            "id": 3,
+            "name": "Scuderia Ferrari",
+            "logo": "https://media.api-sports.io/formula-1/teams/3.png"
+          },
+          "points": 0,
+          "season": 2020
+        },
+        {
+          "position": 7,
+          "team": {
+            "id": 7,
+            "name": "Scuderia AlphaTauri Honda",
+            "logo": "https://media.api-sports.io/formula-1/teams/7.png"
+          },
+          "points": 0,
+          "season": 2020
+        },
+        {
+          "position": 8,
+          "team": {
+            "id": 18,
+            "name": "Alfa Romeo",
+            "logo": "https://media.api-sports.io/formula-1/teams/18.png"
+          },
+          "points": 0,
+          "season": 2020
+        },
+        {
+          "position": 8,
+          "team": {
+            "id": 14,
+            "name": "Haas F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/14.png"
+          },
+          "points": 0,
+          "season": 2020
+        },
+        {
+          "position": 10,
+          "team": {
+            "id": 12,
+            "name": "Williams F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/12.png"
+          },
+          "points": 0,
+          "season": 2020
+        }
+      ]
+    },
+    {
+      "id": "2019",
+      "get": "rankings",
+      "parameters": {
+        "season": "2019"
+      },
+      "errors": [],
+      "results": 10,
+      "response": [
+        {
+          "position": 1,
+          "team": {
+            "id": 5,
+            "name": "Mercedes-AMG Petronas",
+            "logo": "https://media.api-sports.io/formula-1/teams/5.png"
+          },
+          "points": 739,
+          "season": 2019
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 3,
+            "name": "Scuderia Ferrari",
+            "logo": "https://media.api-sports.io/formula-1/teams/3.png"
+          },
+          "points": 504,
+          "season": 2019
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 1,
+            "name": "Red Bull Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/1.png"
+          },
+          "points": 417,
+          "season": 2019
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 2,
+            "name": "McLaren Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/2.png"
+          },
+          "points": 145,
+          "season": 2019
+        },
+        {
+          "position": 5,
+          "team": {
+            "id": 13,
+            "name": "Alpine F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/13.png"
+          },
+          "points": 91,
+          "season": 2019
+        },
+        {
+          "position": 6,
+          "team": {
+            "id": 7,
+            "name": "Scuderia AlphaTauri Honda",
+            "logo": "https://media.api-sports.io/formula-1/teams/7.png"
+          },
+          "points": 85,
+          "season": 2019
+        },
+        {
+          "position": 7,
+          "team": {
+            "id": 17,
+            "name": "Aston Martin F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/17.png"
+          },
+          "points": 73,
+          "season": 2019
+        },
+        {
+          "position": 8,
+          "team": {
+            "id": 18,
+            "name": "Alfa Romeo",
+            "logo": "https://media.api-sports.io/formula-1/teams/18.png"
+          },
+          "points": 57,
+          "season": 2019
+        },
+        {
+          "position": 9,
+          "team": {
+            "id": 14,
+            "name": "Haas F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/14.png"
+          },
+          "points": 28,
+          "season": 2019
+        },
+        {
+          "position": 10,
+          "team": {
+            "id": 12,
+            "name": "Williams F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/12.png"
+          },
+          "points": 1,
+          "season": 2019
+        }
+      ]
+    },
+    {
+      "id": "2018",
+      "get": "rankings",
+      "parameters": {
+        "season": "2018"
+      },
+      "errors": [],
+      "results": 10,
+      "response": [
+        {
+          "position": 1,
+          "team": {
+            "id": 5,
+            "name": "Mercedes-AMG Petronas",
+            "logo": "https://media.api-sports.io/formula-1/teams/5.png"
+          },
+          "points": 655,
+          "season": 2018
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 3,
+            "name": "Scuderia Ferrari",
+            "logo": "https://media.api-sports.io/formula-1/teams/3.png"
+          },
+          "points": 571,
+          "season": 2018
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 1,
+            "name": "Red Bull Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/1.png"
+          },
+          "points": 419,
+          "season": 2018
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 13,
+            "name": "Alpine F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/13.png"
+          },
+          "points": 122,
+          "season": 2018
+        },
+        {
+          "position": 5,
+          "team": {
+            "id": 14,
+            "name": "Haas F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/14.png"
+          },
+          "points": 93,
+          "season": 2018
+        },
+        {
+          "position": 6,
+          "team": {
+            "id": 2,
+            "name": "McLaren Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/2.png"
+          },
+          "points": 62,
+          "season": 2018
+        },
+        {
+          "position": 7,
+          "team": {
+            "id": 4,
+            "name": "Force India",
+            "logo": "https://media.api-sports.io/formula-1/teams/4.png"
+          },
+          "points": 52,
+          "season": 2018
+        },
+        {
+          "position": 8,
+          "team": {
+            "id": 8,
+            "name": "Sauber F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/8.png"
+          },
+          "points": 48,
+          "season": 2018
+        },
+        {
+          "position": 9,
+          "team": {
+            "id": 7,
+            "name": "Scuderia AlphaTauri Honda",
+            "logo": "https://media.api-sports.io/formula-1/teams/7.png"
+          },
+          "points": 33,
+          "season": 2018
+        },
+        {
+          "position": 10,
+          "team": {
+            "id": 12,
+            "name": "Williams F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/12.png"
+          },
+          "points": 7,
+          "season": 2018
+        }
+      ]
+    },
+    {
+      "id": "2017",
+      "get": "rankings",
+      "parameters": {
+        "season": "2017"
+      },
+      "errors": [],
+      "results": 10,
+      "response": [
+        {
+          "position": 1,
+          "team": {
+            "id": 5,
+            "name": "Mercedes-AMG Petronas",
+            "logo": "https://media.api-sports.io/formula-1/teams/5.png"
+          },
+          "points": 668,
+          "season": 2017
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 3,
+            "name": "Scuderia Ferrari",
+            "logo": "https://media.api-sports.io/formula-1/teams/3.png"
+          },
+          "points": 522,
+          "season": 2017
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 1,
+            "name": "Red Bull Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/1.png"
+          },
+          "points": 368,
+          "season": 2017
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 4,
+            "name": "Force India",
+            "logo": "https://media.api-sports.io/formula-1/teams/4.png"
+          },
+          "points": 187,
+          "season": 2017
+        },
+        {
+          "position": 5,
+          "team": {
+            "id": 12,
+            "name": "Williams F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/12.png"
+          },
+          "points": 83,
+          "season": 2017
+        },
+        {
+          "position": 6,
+          "team": {
+            "id": 13,
+            "name": "Alpine F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/13.png"
+          },
+          "points": 57,
+          "season": 2017
+        },
+        {
+          "position": 7,
+          "team": {
+            "id": 7,
+            "name": "Scuderia AlphaTauri Honda",
+            "logo": "https://media.api-sports.io/formula-1/teams/7.png"
+          },
+          "points": 53,
+          "season": 2017
+        },
+        {
+          "position": 8,
+          "team": {
+            "id": 14,
+            "name": "Haas F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/14.png"
+          },
+          "points": 47,
+          "season": 2017
+        },
+        {
+          "position": 9,
+          "team": {
+            "id": 2,
+            "name": "McLaren Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/2.png"
+          },
+          "points": 30,
+          "season": 2017
+        },
+        {
+          "position": 10,
+          "team": {
+            "id": 8,
+            "name": "Sauber F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/8.png"
+          },
+          "points": 5,
+          "season": 2017
+        }
+      ]
+    },
+    {
+      "id": "2016",
+      "get": "rankings",
+      "parameters": {
+        "season": "2016"
+      },
+      "errors": [],
+      "results": 11,
+      "response": [
+        {
+          "position": 1,
+          "team": {
+            "id": 5,
+            "name": "Mercedes-AMG Petronas",
+            "logo": "https://media.api-sports.io/formula-1/teams/5.png"
+          },
+          "points": 765,
+          "season": 2016
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 1,
+            "name": "Red Bull Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/1.png"
+          },
+          "points": 468,
+          "season": 2016
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 3,
+            "name": "Scuderia Ferrari",
+            "logo": "https://media.api-sports.io/formula-1/teams/3.png"
+          },
+          "points": 398,
+          "season": 2016
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 4,
+            "name": "Force India",
+            "logo": "https://media.api-sports.io/formula-1/teams/4.png"
+          },
+          "points": 173,
+          "season": 2016
+        },
+        {
+          "position": 5,
+          "team": {
+            "id": 12,
+            "name": "Williams F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/12.png"
+          },
+          "points": 138,
+          "season": 2016
+        },
+        {
+          "position": 6,
+          "team": {
+            "id": 2,
+            "name": "McLaren Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/2.png"
+          },
+          "points": 76,
+          "season": 2016
+        },
+        {
+          "position": 7,
+          "team": {
+            "id": 7,
+            "name": "Scuderia AlphaTauri Honda",
+            "logo": "https://media.api-sports.io/formula-1/teams/7.png"
+          },
+          "points": 63,
+          "season": 2016
+        },
+        {
+          "position": 8,
+          "team": {
+            "id": 14,
+            "name": "Haas F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/14.png"
+          },
+          "points": 29,
+          "season": 2016
+        },
+        {
+          "position": 9,
+          "team": {
+            "id": 13,
+            "name": "Alpine F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/13.png"
+          },
+          "points": 8,
+          "season": 2016
+        },
+        {
+          "position": 10,
+          "team": {
+            "id": 8,
+            "name": "Sauber F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/8.png"
+          },
+          "points": 2,
+          "season": 2016
+        },
+        {
+          "position": 11,
+          "team": {
+            "id": 16,
+            "name": "Manor Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/16.png"
+          },
+          "points": 1,
+          "season": 2016
+        }
+      ]
+    },
+    {
+      "id": "2015",
+      "get": "rankings",
+      "parameters": {
+        "season": "2015"
+      },
+      "errors": [],
+      "results": 10,
+      "response": [
+        {
+          "position": 1,
+          "team": {
+            "id": 5,
+            "name": "Mercedes-AMG Petronas",
+            "logo": "https://media.api-sports.io/formula-1/teams/5.png"
+          },
+          "points": 703,
+          "season": 2015
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 3,
+            "name": "Scuderia Ferrari",
+            "logo": "https://media.api-sports.io/formula-1/teams/3.png"
+          },
+          "points": 428,
+          "season": 2015
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 12,
+            "name": "Williams F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/12.png"
+          },
+          "points": 257,
+          "season": 2015
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 1,
+            "name": "Red Bull Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/1.png"
+          },
+          "points": 187,
+          "season": 2015
+        },
+        {
+          "position": 5,
+          "team": {
+            "id": 4,
+            "name": "Force India",
+            "logo": "https://media.api-sports.io/formula-1/teams/4.png"
+          },
+          "points": 136,
+          "season": 2015
+        },
+        {
+          "position": 6,
+          "team": {
+            "id": 6,
+            "name": "Lotus F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/6.png"
+          },
+          "points": 78,
+          "season": 2015
+        },
+        {
+          "position": 7,
+          "team": {
+            "id": 7,
+            "name": "Scuderia AlphaTauri Honda",
+            "logo": "https://media.api-sports.io/formula-1/teams/7.png"
+          },
+          "points": 67,
+          "season": 2015
+        },
+        {
+          "position": 8,
+          "team": {
+            "id": 8,
+            "name": "Sauber F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/8.png"
+          },
+          "points": 36,
+          "season": 2015
+        },
+        {
+          "position": 9,
+          "team": {
+            "id": 2,
+            "name": "McLaren Racing",
+            "logo": "https://media.api-sports.io/formula-1/teams/2.png"
+          },
+          "points": 27,
+          "season": 2015
+        },
+        {
+          "position": 10,
+          "team": {
+            "id": 9,
+            "name": "Manor Marussia F1 Team",
+            "logo": "https://media.api-sports.io/formula-1/teams/9.png"
+          },
+          "points": 0,
+          "season": 2015
+        }
+      ]
+    }
+  ]
 }

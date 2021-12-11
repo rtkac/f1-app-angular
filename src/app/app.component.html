@@ -3,7 +3,13 @@
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     <app-init-loader></app-init-loader>
   </div>
-  <app-init-error *ngIf="isInitError"></app-init-error>
+
+  <div class="container container--primary" *ngIf="isInitError">
+    <app-init-error
+      errorMessage="Something went wrong while initializing the app.<br />Please try it again later."
+    ></app-init-error>
+  </div>
+
   <ng-container *ngIf="!isInitLoading && !isInitError">
     <app-header></app-header>
     <div class="app-main">

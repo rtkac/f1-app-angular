@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
           (user) => {
             if (user) {
               this.isInitLoading = false;
-              this.store.dispatch(new UserActions.SaveUser(user));
+              this.store.dispatch(new UserActions.PutUserSuccess({ user }));
             }
           },
           () => {

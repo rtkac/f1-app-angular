@@ -1,4 +1,9 @@
-<app-welcome></app-welcome>
 <div class="container container--primary">
-  <app-favourite-team></app-favourite-team>
+  <div class="loading" *ngIf="isLoading && !isLoaded && !error">
+    <mat-spinner [diameter]="70"></mat-spinner>
+  </div>
+
+  <app-init-error *ngIf="!!error" errorMessage="{{error}}"></app-init-error>
+
+  <app-team-card [team]="favouriteTeam" *ngIf="favouriteTeam"></app-team-card>
 </div>

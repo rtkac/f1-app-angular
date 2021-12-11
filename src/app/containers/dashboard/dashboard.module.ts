@@ -3,17 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from 'src/app/material.module';
+import { SharedModule } from 'src/app/shared.module';
 
 import { DashboardContainer } from './dashboard.container';
 import { AuthGuard } from 'src/app/guards/auth.guard';
-import { FavouriteTeamComponent } from './favourite-team/favourite-team.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { TeamCardComponent } from '../../components/team-card/team-card.component';
 
 @NgModule({
-  declarations: [DashboardContainer, FavouriteTeamComponent, WelcomeComponent],
+  declarations: [DashboardContainer, TeamCardComponent],
   imports: [
     CommonModule,
     MaterialModule,
+    SharedModule,
     RouterModule.forChild([{ path: '', component: DashboardContainer, canActivate: [AuthGuard] }]),
   ],
   exports: [RouterModule],

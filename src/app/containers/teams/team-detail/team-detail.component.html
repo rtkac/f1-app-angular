@@ -1,0 +1,25 @@
+<div class="container container--primary" *ngIf="isLoading && !isLoaded && !error">
+  <div class="loading">
+    <mat-spinner [diameter]="70"></mat-spinner>
+  </div>
+</div>
+<div class="container container--primary" *ngIf="!!error">
+  <app-init-error errorMessage="{{ error }}"></app-init-error>
+</div>
+
+<div class="team-detail" *ngIf="!!team">
+  <div class="team-detail-top" [ngClass]="{ 'team-detail-top-fav': isFavourite }">
+    <div class="container">
+      <div class="team-detail-top-holder">
+        <h3>{{ team.name }} Details</h3>
+        <mat-icon *ngIf="isFavourite">favorite_border</mat-icon>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="team-detail-bottom">
+    <div class="container container--primary">
+      <img class="team-detail-logo" src="{{ team.logo }}" alt="{{ team.name }}" />
+    </div>
+  </div>
+</div>

@@ -9,6 +9,9 @@ module.exports = function (req, res, next) {
     // if (req.url === '/user') {
     //   return res.sendStatus(500);
     // }
+    // if (req.url === '/teams') {
+    //   return res.sendStatus(500);
+    // }
     if (req.url === '/login') {
       if (req.body.email !== 'test@example.com' || req.body.password !== '123456') {
         return res.sendStatus(401);
@@ -22,5 +25,5 @@ module.exports = function (req, res, next) {
     }
 
     next();
-  }, 2000);
+  }, 1000);
 };

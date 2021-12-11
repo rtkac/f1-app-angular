@@ -1,0 +1,17 @@
+@import 'variables';
+
+.breadcrumbs {
+  padding: $padding 0;
+
+  &-item {
+    display: inline-flex;
+    align-items: center;
+    &-link {
+      color: mat-color($primary);
+      cursor: pointer;
+    }
+    &-divider {
+      padding: 0 10px;
+    }
+  }
+}

@@ -9,10 +9,14 @@ export interface Team {
   tyres: string;
 }
 
-export interface Teams {
+export interface TeamsResponse {
   get: string;
   parameters: any[];
   errors: any[];
   results: number;
   response: Team[];
+}
+
+export interface FavouriteTeam {
+  favouriteTeam: Team;
 }

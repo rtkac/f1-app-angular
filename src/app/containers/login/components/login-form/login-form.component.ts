@@ -13,7 +13,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
   loginSubscription = new Subscription();
   isLoading = false;
-  error = false;
+  error = null;
 
   constructor(private authService: AuthService) {}
 

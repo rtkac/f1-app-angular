@@ -1,11 +1,11 @@
 <div class="content" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxFlexFill>
   <div fxFlex="27">
     <mat-card class="favourite-team">
-      <img mat-card-image src="https://i.redd.it/e3a3aakmjm701.jpg" />
-      <mat-card-title>RedBull Racing</mat-card-title>
+      <img mat-card-image src="{{ team?.logo }}" />
+      <mat-card-title>{{ team?.name }}</mat-card-title>
       <mat-card-subtitle>your favourite team</mat-card-subtitle>
       <mat-card-actions>
-        <button mat-raised-button color="accent">Change favourite team</button>
+        <button mat-raised-button color="accent" routerLink="teams">Change favourite team</button>
       </mat-card-actions>
     </mat-card>
   </div>
