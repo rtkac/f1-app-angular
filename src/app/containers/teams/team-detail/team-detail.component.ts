@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { map, Subscription, switchMap } from 'rxjs';
 
 import { Team } from 'src/app/models/teams.model';
-import * as fromApp from '../../../store/app.reducer';
+import { TeamsFacade } from 'src/app/store/teams/teams.facade';
 
 @Component({
   selector: 'app-team-detail',
@@ -20,7 +19,7 @@ export class TeamDetailComponent implements OnInit {
   isFavourite = false;
   teamStoreSubscription = new Subscription();
 
-  constructor(private route: ActivatedRoute, private store: Store<fromApp.AppState>) {}
+  constructor(private route: ActivatedRoute, private teamsFacade: TeamsFacade) {}
 
   ngOnInit(): void {
     this.route.params
@@ -30,7 +29,7 @@ export class TeamDetailComponent implements OnInit {
         }),
         switchMap((id) => {
           this.id = id;
-          return this.store.select('teams');
+          return this.teamsFacade.teams$;
         }),
         map((teamsState) => {
           this.isLoading = teamsState.isLoading;

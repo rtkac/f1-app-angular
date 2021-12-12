@@ -14,7 +14,7 @@ export class PutUser implements Action {
 
 export class PutUserSuccess implements Action {
   readonly type = PUT_USER_SUCCESS;
-  constructor(public payload: { user: User }) {}
+  constructor(public payload: User) {}
 }
 
 export class PutUserFailed implements Action {

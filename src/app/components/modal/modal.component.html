@@ -1,10 +1,23 @@
-<h1 mat-dialog-title>Change favourite team?</h1>
-<div mat-dialog-content>
-  <p>
-    Your new favourite team: <b>{{ data.newFavouriteTeam.name }}</b>
-  </p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button cdkFocusInitial (click)="changeFavouriteTeam(data.newFavouriteTeam.id)">Ok</button>
+<div>
+  <h1 mat-dialog-title>Change favourite team?</h1>
+  <div mat-dialog-content>
+    <p>
+      Your new favourite team: <b>{{ data.newFavouriteTeam.name }}</b>
+    </p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-stroked-button color="warn" [disabled]="isLoading" (click)="onNoClick()">Cancel</button>
+    <button
+      mat-stroked-button
+      [disabled]="isLoading"
+      cdkFocusInitial
+      (click)="changeFavouriteTeam(data.newFavouriteTeam.id)"
+    >
+      Ok
+      <mat-icon *ngIf="isLoading">
+        <mat-spinner color="warn" diameter="20"></mat-spinner>
+      </mat-icon>
+    </button>
+  </div>
+  <mat-error *ngIf="!!error">{{ error }}</mat-error>
 </div>

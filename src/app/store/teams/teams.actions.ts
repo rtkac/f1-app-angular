@@ -24,7 +24,7 @@ export class FetchTeamsFailed implements Action {
 export class SetFavouriteTeam implements Action {
   readonly type = SET_FAVOURITE_TEAM;
 
-  constructor(public payload: { favouriteTeam: Team }) {}
+  constructor(public payload: Team) {}
 }
 
 export type TeamsActions = FetchTeams | FetchTeamsSuccess | FetchTeamsFailed | SetFavouriteTeam;

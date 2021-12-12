@@ -1,13 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
 import { Team } from 'src/app/models/teams.model';
-import * as fromApp from '../../../store/app.reducer';
 
 import { ModalComponent } from 'src/app/components/modal/modal.component';
+import { TeamsFacade } from 'src/app/store/teams/teams.facade';
 
 @Component({
   selector: 'app-teams-list',
@@ -24,10 +23,10 @@ export class TeamsListComponent implements OnInit, OnDestroy {
   teamsStoreSubscription = new Subscription();
   canChangeIcon = { show: false, id: 0 };
 
-  constructor(private router: Router, private store: Store<fromApp.AppState>, public dialog: MatDialog) {}
+  constructor(private router: Router, private teamsFacade: TeamsFacade, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.teamsStoreSubscription = this.store.select('teams').subscribe((response) => {
+    this.teamsStoreSubscription = this.teamsFacade.teams$.subscribe((response) => {
       this.isLoading = response.isLoading;
       this.isLoaded = response.isLoaded;
       this.error = response.error;

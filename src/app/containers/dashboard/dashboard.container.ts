@@ -1,10 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
 import { Team } from 'src/app/models/teams.model';
-import * as fromApp from '../../store/app.reducer';
-import * as TeamsActions from '../../store/teams/teams.actions';
+import { TeamsFacade } from 'src/app/store/teams/teams.facade';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,11 +16,11 @@ export class DashboardContainer implements OnInit, OnDestroy {
   favouriteTeam?: Team;
   teamsStoreSubscription = new Subscription();
 
-  constructor(private store: Store<fromApp.AppState>) {}
+  constructor(private teamsFacade: TeamsFacade) {}
 
   ngOnInit(): void {
-    this.store.dispatch(new TeamsActions.FetchTeams());
-    this.teamsStoreSubscription = this.store.select('teams').subscribe((response) => {
+    this.teamsFacade.fetchTeams();
+    this.teamsStoreSubscription = this.teamsFacade.teams$.subscribe((response) => {
       this.isLoading = response.isLoading;
       this.isLoaded = response.isLoaded;
       this.error = response.error;

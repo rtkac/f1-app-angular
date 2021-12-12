@@ -1,12 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 
-import * as fromApp from './store/app.reducer';
-import * as UserActions from './store/user/user.actions';
+import { UserFacade } from './store/user/user.facade';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +16,7 @@ export class AppComponent implements OnInit, OnDestroy {
   isInitLoading = true;
   isInitError = false;
 
-  constructor(
-    private authService: AuthService,
-    private userService: UserService,
-    private store: Store<fromApp.AppState>,
-  ) {}
+  constructor(private authService: AuthService, private userService: UserService, private userFacade: UserFacade) {}
 
   ngOnInit(): void {
     this.loggedInSubscription = this.authService.isUserLoggedIn.subscribe((loggedIn) => {
@@ -32,7 +26,7 @@ export class AppComponent implements OnInit, OnDestroy {
           (user) => {
             if (user) {
               this.isInitLoading = false;
-              this.store.dispatch(new UserActions.PutUserSuccess({ user }));
+              this.userFacade.putUserSuccess(user);
             }
           },
           () => {

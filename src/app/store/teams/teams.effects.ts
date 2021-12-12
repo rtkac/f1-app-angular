@@ -1,24 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
 import { switchMap, map, filter, withLatestFrom, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 import { TeamsResponse } from '../../models/teams.model';
 import { teamsEndpoint } from 'src/app/config/endopoints';
-import * as fromApp from '../../store/app.reducer';
+
 import * as TeamsActions from './teams.actions';
-import { of } from 'rxjs';
+import { TeamsFacade } from './teams.facade';
+import { UserFacade } from '../user/user.facade';
 
 @Injectable()
 export class TeamsEffects {
   fetchTeams$ = createEffect(() =>
     this.actions$.pipe(
       ofType(TeamsActions.FETCH_TEAMS_TRIGGERED),
-      withLatestFrom(this.store.select('teams'), this.store.select('user'), (val, teams, userStore) => {
+      withLatestFrom(this.teamsFacade.teams$, this.userFacade.user$, (_, teams, userStore) => {
         return { userStore };
       }),
-      filter((action, isLoaded) => {
+      filter((_, isLoaded) => {
         return !isLoaded;
       }),
       switchMap(({ userStore }) => {
@@ -40,5 +41,10 @@ export class TeamsEffects {
     ),
   );
 
-  constructor(private actions$: Actions, private http: HttpClient, private store: Store<fromApp.AppState>) {}
+  constructor(
+    private actions$: Actions,
+    private http: HttpClient,
+    private teamsFacade: TeamsFacade,
+    private userFacade: UserFacade,
+  ) {}
 }

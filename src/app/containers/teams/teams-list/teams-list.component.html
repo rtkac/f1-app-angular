@@ -56,7 +56,7 @@
       mat-row
       (click)="handleRowClick(row)"
       *matRowDef="let row; columns: displayedColumns"
-      [ngClass]="{ 'fav-team': favouriteTeamId === row.id }"
+      [class.fav-team]="favouriteTeamId === row.id"
     ></tr>
   </table>
 </div>

@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 
@@ -20,13 +21,13 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private dialogRef: MatDialog) {
     if (localStorage.getItem('token')) {
       this.loggedIn.next(true);
     }
   }
 
-  login({ email, password }: Login) {
+  login({ email, password }: Login): Observable<void> {
     return this.http.post<any>(loginEndpoint, { email, password }).pipe(
       map((res: Authorized) => {
         localStorage.setItem('token', res.token);
@@ -39,7 +40,9 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    this.dialogRef.closeAll();
     this.loggedIn.next(false);
+    this.router.navigate(['login']);
   }
 
   handleError(error: HttpErrorResponse): Observable<never> {

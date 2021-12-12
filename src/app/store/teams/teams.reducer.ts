@@ -42,7 +42,7 @@ export function teamsReducer(state = initialState, action: TeamsActions.TeamsAct
     case TeamsActions.SET_FAVOURITE_TEAM:
       return {
         ...state,
-        favouriteTeam: action.payload.favouriteTeam,
+        favouriteTeam: action.payload,
       };
     default:
       return state;

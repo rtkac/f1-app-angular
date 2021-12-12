@@ -1,14 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { switchMap, map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
 
 import { userEndpoint } from 'src/app/config/endopoints';
 import { User } from 'src/app/models/user.model';
-import * as fromApp from '../../store/app.reducer';
 import * as UserActions from './user.actions';
+import { UserFacade } from './user.facade';
 
 @Injectable()
 export class UserEffect {
@@ -21,13 +19,14 @@ export class UserEffect {
         });
       }),
       map((user) => {
-        return new UserActions.PutUserSuccess({ user });
+        return new UserActions.PutUserSuccess(user);
       }),
-      catchError(() => {
-        return of(new UserActions.PutUserFailed());
+      catchError((_, caught) => {
+        this.userFacade.putUserFailed();
+        return caught;
       }),
     ),
   );
 
-  constructor(private actions$: Actions, private http: HttpClient, private store: Store<fromApp.AppState>) {}
+  constructor(private actions$: Actions, private http: HttpClient, private userFacade: UserFacade) {}
 }

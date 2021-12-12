@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { UserFacade } from 'src/app/store/user/user.facade';
 
 import * as fromApp from '../../../store/app.reducer';
 
@@ -13,10 +14,10 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   userStoreSubscription = new Subscription();
   userName = '';
 
-  constructor(private store: Store<fromApp.AppState>) {}
+  constructor(private store: Store<fromApp.AppState>, private userFacade: UserFacade) {}
 
   ngOnInit(): void {
-    this.userStoreSubscription = this.store.select('user').subscribe((userState) => {
+    this.userStoreSubscription = this.userFacade.user$.subscribe((userState) => {
       this.userName = userState.user?.firstName || '';
     });
   }

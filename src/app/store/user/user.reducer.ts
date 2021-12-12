@@ -21,19 +21,21 @@ export function userReducer(state = initialState, action: UserActions.UserAction
       return {
         ...state,
         isLoading: true,
+        isLoaded: false,
+        error: '',
       };
     case UserActions.PUT_USER_SUCCESS:
       return {
         ...state,
         isLoading: false,
         isLoaded: true,
-        user: action.payload.user,
+        user: action.payload,
       };
     case UserActions.PUT_USER_FAILED:
       return {
         ...state,
         isLoading: false,
-        isLoaded: true,
+        isLoaded: false,
         error: 'Something went wrong during changing your favourite team!',
       };
     default:
