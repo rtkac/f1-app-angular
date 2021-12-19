@@ -7,7 +7,6 @@ import { Team } from 'src/app/models/teams.model';
 
 import * as UserActions from 'src/app/store/user/user.actions';
 import { UserFacade } from 'src/app/store/user/user.facade';
-import { TeamsFacade } from 'src/app/store/teams/teams.facade';
 
 @Component({
   selector: 'app-modal',
@@ -23,7 +22,6 @@ export class ModalComponent implements OnInit, OnDestroy {
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { newFavouriteTeam: Team },
-    private teamsFacade: TeamsFacade,
     private userFacade: UserFacade,
     private actionsSubject$: ActionsSubject,
   ) {}
@@ -41,15 +39,14 @@ export class ModalComponent implements OnInit, OnDestroy {
   }
 
   changeFavouriteTeam(userId: number) {
-    this.userFacade.putUser(userId);
+    this.userFacade.patchUser({ favouriteTeamId: userId });
     this.dialogRef.disableClose = true;
 
-    this.actionsSubject$.pipe(filter((action) => action.type === UserActions.PUT_USER_SUCCESS)).subscribe(() => {
-      this.teamsFacade.setFavouriteTeam(this.data.newFavouriteTeam);
+    this.actionsSubject$.pipe(filter((action) => action.type === UserActions.PATCH_USER_SUCCESS)).subscribe(() => {
       this.dialogRef.close();
     });
 
-    this.actionsSubject$.pipe(filter((action) => action.type === UserActions.PUT_USER_FAILED)).subscribe(() => {
+    this.actionsSubject$.pipe(filter((action) => action.type === UserActions.PATCH_USER_FAILED)).subscribe(() => {
       this.userStoreSubscription = this.userFacade.user$.subscribe((userState) => {
         this.error = userState.error;
       });

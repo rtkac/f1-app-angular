@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { User } from 'src/app/models/user.model';
+import { PatchUserBody, User } from 'src/app/models/user.model';
 import * as fromApp from '../../store/app.reducer';
 import * as UserActions from './user.actions';
 
@@ -13,15 +13,27 @@ export class UserFacade {
 
   constructor(private store: Store<fromApp.AppState>) {}
 
-  putUser(user: number) {
-    this.store.dispatch(new UserActions.PutUser(user));
+  getUser() {
+    this.store.dispatch(new UserActions.GetUser());
   }
 
-  putUserSuccess(user: User) {
-    this.store.dispatch(new UserActions.PutUserSuccess(user));
+  getUserSuccess(user: User) {
+    this.store.dispatch(new UserActions.GetUserSuccess(user));
   }
 
-  putUserFailed() {
-    this.store.dispatch(new UserActions.PutUserFailed());
+  getUserFailed() {
+    this.store.dispatch(new UserActions.GetUserFailed());
+  }
+
+  patchUser(user: PatchUserBody) {
+    this.store.dispatch(new UserActions.PatchUser(user));
+  }
+
+  patchUserSuccess(user: User) {
+    this.store.dispatch(new UserActions.PatchUserSuccess(user));
+  }
+
+  patchUserFailed() {
+    this.store.dispatch(new UserActions.PatchUserFailed());
   }
 }

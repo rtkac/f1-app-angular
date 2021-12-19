@@ -18,8 +18,25 @@
   </div>
   <mat-divider></mat-divider>
   <div class="team-detail-bottom">
-    <div class="container container--primary">
-      <img class="team-detail-logo" src="{{ team.logo }}" alt="{{ team.name }}" />
+    <div class="container">
+      <div class="team-detail-content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+        <div fxFlex="60" fxFlex.xs="100">
+          <img class="team-detail-logo" src="{{ team.logo }}" alt="{{ team.name }}" />
+        </div>
+        <div fxFlex="40">
+          <p><b>President:</b> {{ team.president }}</p>
+          <p><b>Director:</b> {{ team.director }}</p>
+          <p><b>Technical Manager:</b> {{ team.technical_manager }}</p>
+          <p><b>Engine:</b> {{ team.engine }}</p>
+          <p><b>Tyres:</b> {{ team.tyres }}</p>
+        </div>
+      </div>
+      <div *ngIf="!isFavourite">
+        <mat-divider></mat-divider>
+        <div class="team-detail-buttons">
+          <button mat-raised-button color="warn" (click)="setAsFavourite()">Set as favourite</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

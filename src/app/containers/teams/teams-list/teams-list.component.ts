@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { Team } from 'src/app/models/teams.model';
 
 import { ModalComponent } from 'src/app/components/modal/modal.component';
+import { UserFacade } from 'src/app/store/user/user.facade';
 import { TeamsFacade } from 'src/app/store/teams/teams.facade';
 
 @Component({
@@ -21,9 +22,15 @@ export class TeamsListComponent implements OnInit, OnDestroy {
   teams: Team[] | null = null;
   favouriteTeamId?: number;
   teamsStoreSubscription = new Subscription();
+  userStoreSubscription = new Subscription();
   canChangeIcon = { show: false, id: 0 };
 
-  constructor(private router: Router, private teamsFacade: TeamsFacade, public dialog: MatDialog) {}
+  constructor(
+    private router: Router,
+    private userFacade: UserFacade,
+    private teamsFacade: TeamsFacade,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {
     this.teamsStoreSubscription = this.teamsFacade.teams$.subscribe((response) => {
@@ -59,5 +66,6 @@ export class TeamsListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.teamsStoreSubscription.unsubscribe();
+    this.userStoreSubscription.unsubscribe();
   }
 }

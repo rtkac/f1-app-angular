@@ -4,14 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from 'src/app/material.module';
 import { SharedModule } from 'src/app/shared.module';
-
 import { AuthGuard } from 'src/app/guards/auth.guard';
-import { TeamsContainer } from './teams.container';
-import { TeamsListComponent } from './teams-list/teams-list.component';
-import { TeamDetailComponent } from './team-detail/team-detail.component';
+import { DriversContainer } from './drivers.container';
+import { DriversListComponent } from './drivers-list/drivers-list.component';
 
 @NgModule({
-  declarations: [TeamsContainer, TeamsListComponent, TeamDetailComponent],
+  declarations: [DriversContainer, DriversListComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -19,21 +17,16 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
     RouterModule.forChild([
       {
         path: '',
-        component: TeamsContainer,
+        component: DriversContainer,
         canActivate: [AuthGuard],
         children: [
           {
             path: '',
-            component: TeamsListComponent,
-          },
-          {
-            path: ':id',
-            component: TeamDetailComponent,
+            component: DriversListComponent,
           },
         ],
       },
     ]),
   ],
-  exports: [RouterModule],
 })
-export class TeamsModule {}
+export class DriversModule {}

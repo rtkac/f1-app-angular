@@ -3,13 +3,13 @@
   <mat-divider></mat-divider>
   <mat-card-content>
     <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Email</mat-label>
         <input matInput placeholder="Enter email" formControlName="email" />
         <mat-error *ngIf="email?.errors?.['required']">Email is <strong>required</strong></mat-error>
         <mat-error *ngIf="email?.errors?.['email']">Please enter a valid email address</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Password</mat-label>
         <input matInput placeholder="Enter password" type="password" formControlName="password" />
         <mat-error *ngIf="password?.errors?.['required']"> Password is <strong>required</strong> </mat-error>

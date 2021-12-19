@@ -4,3 +4,10 @@ export interface User {
   email: string;
   favouriteTeamId: number;
 }
+
+export interface PatchUserBody {
+  firstName?: string;
+  surName?: string;
+  email?: string;
+  favouriteTeamId?: number;
+}

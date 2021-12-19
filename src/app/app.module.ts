@@ -11,7 +11,8 @@ import { SharedModule } from './shared.module';
 
 import * as fromApp from './store/app.reducer';
 import { TeamsEffects } from './store/teams/teams.effects';
-import { UserEffect } from './store/user/user.effects';
+import { UserEffects } from './store/user/user.effects';
+import { DriversEffects } from './store/drivers/drivers.effects';
 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
@@ -42,7 +43,7 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
     MaterialModule,
     SharedModule,
     StoreModule.forRoot(fromApp.appReducer),
-    EffectsModule.forRoot([TeamsEffects, UserEffect]),
+    EffectsModule.forRoot([TeamsEffects, UserEffects, DriversEffects]),
   ],
   providers: [
     {

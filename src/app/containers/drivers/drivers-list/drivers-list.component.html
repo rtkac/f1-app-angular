@@ -1,0 +1,11 @@
+<div class="container container--primary">
+  <div class="loading" *ngIf="isLoading && !isLoaded && !error">
+    <mat-spinner [diameter]="70"></mat-spinner>
+  </div>
+
+  <app-init-error *ngIf="!!error" errorMessage="{{ error }}"></app-init-error>
+
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center" fxFlexFill>
+    <app-driver-card fxFlex="25" fxFlex.sm="33" [driver]="driver" *ngFor="let driver of drivers"></app-driver-card>
+  </div>
+</div>

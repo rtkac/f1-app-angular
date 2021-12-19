@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
 import { map, Subscription, switchMap } from 'rxjs';
 
 import { Team } from 'src/app/models/teams.model';
 import { TeamsFacade } from 'src/app/store/teams/teams.facade';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 
 @Component({
   selector: 'app-team-detail',
@@ -19,7 +21,7 @@ export class TeamDetailComponent implements OnInit {
   isFavourite = false;
   teamStoreSubscription = new Subscription();
 
-  constructor(private route: ActivatedRoute, private teamsFacade: TeamsFacade) {}
+  constructor(private route: ActivatedRoute, private teamsFacade: TeamsFacade, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.route.params
@@ -47,6 +49,14 @@ export class TeamDetailComponent implements OnInit {
         this.team = teamRes.team;
         this.isFavourite = teamRes.isFavourite;
       });
+  }
+
+  setAsFavourite(): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: { newFavouriteTeam: this.team },
+    });
+
+    dialogRef.afterClosed();
   }
 
   ngOnDestroy(): void {

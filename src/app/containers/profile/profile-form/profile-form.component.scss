@@ -1,0 +1,73 @@
+@import 'variables';
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-card {
+  padding: 0;
+  border-radius: 0;
+
+  &-header {
+    background-color: mat-color($primary);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 20px;
+  }
+
+  &-title {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  &-content {
+    padding: $padding;
+  }
+}
+
+.profile-form {
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+
+    .mat-icon-button {
+      position: absolute;
+      top: 8px;
+      &:first-child {
+        left: 0;
+      }
+      &:last-child {
+        right: 0;
+      }
+    }
+
+    .mat-spinner {
+      position: absolute;
+      top: 16px;
+      right: 10px;
+    }
+  }
+
+  &-image {
+    padding: 5px ​0;
+    .mat-icon {
+      font-size: 80px;
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}

@@ -7,10 +7,9 @@ import { SharedModule } from 'src/app/shared.module';
 
 import { DashboardContainer } from './dashboard.container';
 import { AuthGuard } from 'src/app/guards/auth.guard';
-import { TeamCardComponent } from '../../components/team-card/team-card.component';
 
 @NgModule({
-  declarations: [DashboardContainer, TeamCardComponent],
+  declarations: [DashboardContainer],
   imports: [
     CommonModule,
     MaterialModule,

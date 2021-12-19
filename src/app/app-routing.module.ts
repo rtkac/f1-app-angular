@@ -18,6 +18,14 @@ const routes: Routes = [
         path: 'teams',
         loadChildren: () => import('./containers/teams/teams.module').then((m) => m.TeamsModule),
       },
+      {
+        path: 'drivers',
+        loadChildren: () => import('./containers/drivers/drivers.module').then((m) => m.DriversModule),
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./containers/profile/profile.module').then((m) => m.ProfileModule),
+      },
     ],
   },
   {

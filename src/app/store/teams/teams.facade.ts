@@ -25,7 +25,11 @@ export class TeamsFacade {
     this.store.dispatch(new TeamsActions.FetchTeamsFailed());
   }
 
-  setFavouriteTeam(favouriteTeam: Team) {
-    this.store.dispatch(new TeamsActions.SetFavouriteTeam(favouriteTeam));
+  setFavouriteTeamId(favouriteTeamId: number) {
+    this.store.dispatch(new TeamsActions.SetFavouriteTeamId(favouriteTeamId));
+  }
+
+  setFavouriteTeam(favouriteTeamId: number) {
+    this.store.dispatch(new TeamsActions.SetFavouriteTeam(favouriteTeamId));
   }
 }

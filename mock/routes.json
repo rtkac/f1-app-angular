@@ -2,5 +2,7 @@
   "login": "/login",
   "user": "/user",
   "teams": "/teams",
+  "drivers": "/drivers",
+  "drivers/:id": "/drivers/:id",
   "rankings-teams/:id": "/rankings-teams/:id"
 }

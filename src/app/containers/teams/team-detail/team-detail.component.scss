@@ -34,4 +34,20 @@
     max-width: 100%;
     width: 200px;
   }
+
+  &-content {
+    padding: $padding 0;
+  }
+
+  &-buttons {
+    padding: $padding 0;
+  }
+}
+
+@media screen and (max-width: $breakpoint_xs) {
+  .team-detail {
+    &-logo {
+      margin-bottom: $padding;
+    }
+  }
 }

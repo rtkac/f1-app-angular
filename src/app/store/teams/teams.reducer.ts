@@ -7,6 +7,7 @@ export interface State {
   error: string;
   teams: Team[] | null;
   favouriteTeam?: Team;
+  favouriteTeamId?: number;
 }
 
 const initialState: State = {
@@ -15,6 +16,7 @@ const initialState: State = {
   error: '',
   teams: null,
   favouriteTeam: undefined,
+  favouriteTeamId: undefined,
 };
 
 export function teamsReducer(state = initialState, action: TeamsActions.TeamsActions) {
@@ -39,10 +41,15 @@ export function teamsReducer(state = initialState, action: TeamsActions.TeamsAct
         isLoaded: false,
         error: 'Something went wrong during fetching the teams!',
       };
+    case TeamsActions.SET_FAVOURITE_TEAM_ID:
+      return {
+        ...state,
+        favouriteTeamId: action.payload,
+      };
     case TeamsActions.SET_FAVOURITE_TEAM:
       return {
         ...state,
-        favouriteTeam: action.payload,
+        favouriteTeam: state.teams?.find((team) => team.id === action.payload),
       };
     default:
       return state;
