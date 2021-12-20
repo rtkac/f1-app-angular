@@ -83,6 +83,12 @@ td.mat-footer-cell {
   padding: 15px;
 }
 
+td.mat-cell {
+  &:first-of-type {
+    width: 65px;
+  }
+}
+
 @media screen and (max-width: $breakpoint_xs) {
   .driver-detail {
     &-image {

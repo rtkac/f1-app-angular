@@ -3,7 +3,6 @@ import { ActionsSubject } from '@ngrx/store';
 import { filter, Subscription } from 'rxjs';
 
 import { AuthService } from './services/auth.service';
-import { UserService } from './services/user.service';
 
 import * as UserActions from 'src/app/store/user/user.actions';
 import { UserFacade } from './store/user/user.facade';
@@ -20,7 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService,
     private userFacade: UserFacade,
     private actionsSubject$: ActionsSubject,
   ) {}

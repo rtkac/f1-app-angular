@@ -1,8 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { map, Subscription } from 'rxjs';
 
-import { DriverDetail } from 'src/app/models/drivers.model';
+import { DriverDetail, DriverDetailTeam } from 'src/app/models/drivers.model';
 import { DriversFacade } from 'src/app/store/drivers/drivers.facade';
 
 @Component({
@@ -17,8 +20,18 @@ export class DriverDetailComponent implements OnInit, OnDestroy {
   driver?: DriverDetail;
   driversSubscription = new Subscription();
   displayedColumns: string[] = ['season', 'team'];
+  dataSource = new MatTableDataSource<DriverDetailTeam>([]);
 
-  constructor(private route: ActivatedRoute, private router: Router, private driversFacade: DriversFacade) {}
+  constructor(
+    private _liveAnnouncer: LiveAnnouncer,
+    private route: ActivatedRoute,
+    private router: Router,
+    private driversFacade: DriversFacade,
+  ) {}
+
+  @ViewChild(MatSort) set matSort(sort: MatSort) {
+    this.dataSource.sort = sort;
+  }
 
   ngOnInit(): void {
     this.route.params
@@ -33,10 +46,21 @@ export class DriverDetailComponent implements OnInit, OnDestroy {
             this.isLoaded = response.isLoadedDetail;
             this.error = response.errorDetail;
             this.driver = response.driversDetail.find((driver) => driver.id === id);
+
+            this.dataSource = new MatTableDataSource<DriverDetailTeam>(this.driver?.teams);
           });
         }),
       )
       .subscribe();
+  }
+
+  /** Announce the change in sort state for assistive technology. */
+  announceSortChange(sortState: Sort) {
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 
   handleTeamClick(teamId: number) {

@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -29,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatProgressBarModule,
     MatMenuModule,
     MatTableModule,
+    MatSortModule,
     MatSelectModule,
     MatDialogModule,
   ],
@@ -45,6 +47,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatProgressBarModule,
     MatMenuModule,
     MatTableModule,
+    MatSortModule,
     MatSelectModule,
     MatDialogModule,
   ],
