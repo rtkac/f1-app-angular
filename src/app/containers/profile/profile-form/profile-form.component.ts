@@ -28,7 +28,7 @@ export class ProfileFormComponent implements OnInit, OnDestroy {
   teamsLoaded = false;
   teamsError = '';
   editMode = false;
-  submitWarningMessage = '';
+  errorMessage = '';
 
   constructor(
     private actionsSubject$: ActionsSubject,
@@ -42,6 +42,7 @@ export class ProfileFormComponent implements OnInit, OnDestroy {
     this.userStoreSubscription = this.userFacade.user$.subscribe((userState) => {
       this.user = userState.user;
       this.userLoading = userState.isLoading;
+      this.errorMessage = userState.error;
     });
     this.teamsStoreSubscription = this.teamsFacade.teams$.subscribe((teamsState) => {
       this.teams = teamsState.teams;
@@ -62,7 +63,7 @@ export class ProfileFormComponent implements OnInit, OnDestroy {
       this.profileEditForm.controls[controlName]['disable']();
     });
 
-    this.profileEditForm.valueChanges.subscribe(() => (this.submitWarningMessage = ''));
+    this.profileEditForm.valueChanges.subscribe(() => (this.errorMessage = ''));
 
     this.actionsSubject$.pipe(filter((action) => action.type === UserActions.PATCH_USER_SUCCESS)).subscribe(() => {
       this.toggleEdit();
@@ -99,7 +100,7 @@ export class ProfileFormComponent implements OnInit, OnDestroy {
     const isFormChanged = !isEqual(this.profileEditForm.value, this.user);
 
     if (!isFormChanged) {
-      this.submitWarningMessage = 'Please change at least one field before submit!';
+      this.errorMessage = 'Please change at least one field before submit!';
     } else {
       if (this.profileEditForm.valid) {
         this.userFacade.patchUser(this.profileEditForm.value);

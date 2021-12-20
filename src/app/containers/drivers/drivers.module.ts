@@ -5,11 +5,13 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from 'src/app/material.module';
 import { SharedModule } from 'src/app/shared.module';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+
 import { DriversContainer } from './drivers.container';
 import { DriversListComponent } from './drivers-list/drivers-list.component';
+import { DriverDetailComponent } from './driver-detail/driver-detail.component';
 
 @NgModule({
-  declarations: [DriversContainer, DriversListComponent],
+  declarations: [DriversContainer, DriversListComponent, DriverDetailComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -23,6 +25,10 @@ import { DriversListComponent } from './drivers-list/drivers-list.component';
           {
             path: '',
             component: DriversListComponent,
+          },
+          {
+            path: ':id',
+            component: DriverDetailComponent,
           },
         ],
       },

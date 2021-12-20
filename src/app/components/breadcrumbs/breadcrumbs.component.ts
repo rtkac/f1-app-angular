@@ -58,7 +58,7 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy {
 
     this.storeSub = this.store.subscribe((state) => {
       if (segments?.length) {
-        if (state.teams.teams?.length) {
+        if (state.teams.teams?.length || state.drivers.driversDetail?.length) {
           return this.breadcrumbsSub.next([
             {
               path: '',
@@ -68,9 +68,13 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy {
               if (segments[index - 1]?.path === 'teams') {
                 return {
                   path: segment.path,
-                  label:
-                    state.teams.teams?.find((team) => team.id === +segment.path)?.name ||
-                    breadcrumbsLabelFactory(segment.path),
+                  label: state.teams.teams?.find((team) => team.id === +segment.path)?.name || '',
+                };
+              }
+              if (segments[index - 1]?.path === 'drivers') {
+                return {
+                  path: segment.path,
+                  label: state.drivers.driversDetail?.find((driver) => driver.id === +segment.path)?.name || '',
                 };
               }
               return {

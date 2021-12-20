@@ -3,6 +3,6 @@
   "user": "/user",
   "teams": "/teams",
   "drivers": "/drivers",
-  "drivers/:id": "/drivers/:id",
+  "driver-detail/:id": "/driver-detail/:id",
   "rankings-teams/:id": "/rankings-teams/:id"
 }

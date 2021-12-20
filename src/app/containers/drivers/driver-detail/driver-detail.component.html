@@ -1,0 +1,55 @@
+<div class="container container--primary" *ngIf="isLoading && !error">
+  <div class="loading">
+    <mat-spinner [diameter]="70"></mat-spinner>
+  </div>
+</div>
+<div class="container container--primary" *ngIf="!!error">
+  <app-init-error errorMessage="{{ error }}"></app-init-error>
+</div>
+
+<div class="driver-detail" *ngIf="!isLoading && !error">
+  <div class="driver-detail-top">
+    <div class="container">
+      <div class="driver-detail-top-holder">
+        <h3>{{ driver?.name }} Details</h3>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="driver-detail-bottom">
+    <div class="container">
+      <div class="driver-detail-content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+        <div fxFlex="60" fxFlex.xs="100">
+          <img class="driver-detail-image" src="{{ driver?.image }}" alt="{{ driver?.name }}" />
+        </div>
+        <div fxFlex="40">
+          <p><b>Birthday:</b> {{ driver?.birthdate | date: 'd MMMM y' }}</p>
+          <p><b>Nationality:</b> {{ driver?.nationality }}</p>
+        </div>
+      </div>
+      <div *ngIf="driver?.teams?.length">
+        <mat-divider></mat-divider>
+        <div class="driver-table">
+          <h3>Driver's Season:</h3>
+          <table mat-table [dataSource]="driver?.teams!" class="mat-elevation-z8">
+            <ng-container matColumnDef="season">
+              <th mat-header-cell *matHeaderCellDef>Season</th>
+              <td mat-cell *matCellDef="let team">{{ team.season }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="team">
+              <th mat-header-cell *matHeaderCellDef>Team</th>
+              <td mat-cell *matCellDef="let team">
+                <span class="driver-table-logo"><img src="{{ team.team.logo }}" alt="{{ team.team.name }}" /></span>
+                <span>{{ team.team.name }}</span>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row (click)="handleTeamClick(row.team.id)" *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

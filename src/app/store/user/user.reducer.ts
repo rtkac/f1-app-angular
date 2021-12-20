@@ -43,7 +43,7 @@ export function userReducer(state = initialState, action: UserActions.UserAction
         ...state,
         isLoading: false,
         isLoaded: false,
-        error: 'Something went wrong during changing your favourite team!',
+        error: 'Something went wrong! Please try again later.',
       };
     default:
       return state;

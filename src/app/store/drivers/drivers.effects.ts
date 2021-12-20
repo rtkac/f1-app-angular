@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { of } from 'rxjs';
 import { switchMap, map, catchError, withLatestFrom, filter } from 'rxjs/operators';
 
-import { driversEndpoint } from 'src/app/config/endopoints';
-import { DriversResponse } from 'src/app/models/drivers.model';
+import { driverEndpoint, driversEndpoint } from 'src/app/config/endopoints';
+import { DriverDetailResponse, DriversResponse } from 'src/app/models/drivers.model';
+
+import * as fromDrivers from './drivers.reducer';
 import * as DriversActions from './drivers.actions';
 import { DriversFacade } from './drivers.facade';
 
@@ -24,9 +27,35 @@ export class DriversEffects {
           map((driversResponse) => {
             return new DriversActions.FetchDriversSuccess(driversResponse.response);
           }),
-          catchError((_, caught) => {
-            this.driversFacade.fetchDriversFailed();
-            return caught;
+          catchError(() => {
+            return of(new DriversActions.FetchDriversFailed());
+          }),
+        );
+      }),
+    ),
+  );
+  fetchDriver$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(DriversActions.FETCH_DRIVER_TRIGGERED),
+      withLatestFrom(
+        this.driversFacade.drivers$,
+        (action: DriversActions.FetchDriver, driversStore: fromDrivers.State) => {
+          return {
+            action,
+            driversStore,
+          };
+        },
+      ),
+      switchMap(({ action, driversStore }) => {
+        if (driversStore.driversDetail.find((driver) => driver.id === action.payload)) {
+          return [new DriversActions.FetchDriverSuccess([])];
+        }
+        return this.http.get<DriverDetailResponse>(driverEndpoint(action.payload)).pipe(
+          map((driverResponse) => {
+            return new DriversActions.FetchDriverSuccess(driverResponse.response);
+          }),
+          catchError(() => {
+            return of(new DriversActions.FetchDriverFailed());
           }),
         );
       }),

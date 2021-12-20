@@ -1,0 +1,92 @@
+@import 'variables';
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.driver-detail {
+  &-top {
+    background-color: mat-color($accent);
+    padding: $padding 0;
+
+    &-holder {
+      display: flex;
+      align-items: center;
+    }
+
+    h3 {
+      margin-bottom: 0;
+    }
+  }
+
+  &-image {
+    max-width: 100%;
+    width: 200px;
+  }
+
+  &-content {
+    padding: $padding 0;
+  }
+
+  &-buttons {
+    padding: $padding 0;
+  }
+}
+
+.driver-table {
+  padding-top: $padding;
+}
+
+.driver-table-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  padding-right: $padding;
+}
+
+table {
+  width: 100%;
+  margin: 0 0 30px;
+  img {
+    width: auto;
+    max-width: 80px;
+    height: auto;
+    max-height: 40px;
+  }
+}
+
+.mat-header-cell {
+  &:last-of-type {
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+.mat-cell {
+  &:last-of-type {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.mat-row {
+  cursor: pointer;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  padding: 15px;
+}
+
+@media screen and (max-width: $breakpoint_xs) {
+  .driver-detail {
+    &-image {
+      margin-bottom: $padding;
+    }
+  }
+}
