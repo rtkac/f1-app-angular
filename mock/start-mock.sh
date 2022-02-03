@@ -1,1 +1,1 @@
-json-server data.json --routes routes.json --middlewares middleware.js --port 4000
+json-server _data.json --routes routes.json --middlewares middleware.js --port 4000

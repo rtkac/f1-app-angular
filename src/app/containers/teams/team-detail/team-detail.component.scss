@@ -8,7 +8,8 @@
 
 .team-detail {
   &-top {
-    background-color: mat-color($accent);
+    background-color: mat-color($primary);
+    color: white;
     padding: $padding 0;
 
     &-holder {
@@ -40,6 +41,15 @@
   }
 
   &-buttons {
+    padding: $padding 0;
+  }
+
+  &-drivers {
+    padding: $padding 0;
+  }
+
+  &-not-found {
+    text-align: center;
     padding: $padding 0;
   }
 }

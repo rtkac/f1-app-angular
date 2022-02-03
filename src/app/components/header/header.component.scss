@@ -10,6 +10,14 @@
   &-menu {
     display: flex;
     align-items: center;
+    &-logo {
+      display: flex;
+      height: 100%;
+      img {
+        width: 100px;
+        height: auto;
+      }
+    }
     &-items {
       margin-left: $padding;
     }

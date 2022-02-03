@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { switchMap, map, filter, catchError, withLatestFrom } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-import { TeamsResponse } from '../../models/teams.model';
+import { Team } from '../../models/teams.model';
 import { teamsEndpoint } from 'src/app/config/endopoints';
 
 import * as TeamsActions from './teams.actions';
@@ -22,11 +22,11 @@ export class TeamsEffects {
         return !isLoaded;
       }),
       switchMap(({ teamsStore }) => {
-        return this.http.get<TeamsResponse>(teamsEndpoint).pipe(
+        return this.http.get<Team[]>(teamsEndpoint).pipe(
           map((teamsResponse) => {
             return {
-              teams: [...teamsResponse.response],
-              favouriteTeam: teamsResponse.response.find((team) => team.id === teamsStore.favouriteTeamId),
+              teams: [...teamsResponse],
+              favouriteTeam: teamsResponse.find((team) => team.id === teamsStore.favouriteTeamId),
             };
           }),
           map((teamsFormatted) => {

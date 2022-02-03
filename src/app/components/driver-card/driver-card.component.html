@@ -1,8 +1,10 @@
 <div class="driver-card" routerLink="{{ driver?.id }}">
   <mat-card>
     <div class="driver-card-image">
-      <img mat-card-image src="{{ driver?.image }}" />
+      <img mat-card-image src="{{ driver?.image }}" alt="{{ driver?.name }}" />
     </div>
-    <mat-card-title>{{ driver?.name }}</mat-card-title>
+    <mat-card-title
+      ><span>#{{ driver?.number }}</span> <span>{{ driver?.name }}</span></mat-card-title
+    >
   </mat-card>
 </div>

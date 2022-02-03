@@ -1,6 +1,6 @@
 <div class="container container--primary" *ngIf="isLoading && !error">
   <div class="loading">
-    <mat-spinner [diameter]="70"></mat-spinner>
+    <mat-spinner [diameter]="70" color="warn"></mat-spinner>
   </div>
 </div>
 <div class="container container--primary" *ngIf="!!error">
@@ -11,7 +11,9 @@
   <div class="driver-detail-top">
     <div class="container">
       <div class="driver-detail-top-holder">
-        <h3>{{ driver?.name }} Details</h3>
+        <h3>
+          <b>#{{ driver?.number }}</b> {{ driver?.name }} Details
+        </h3>
       </div>
     </div>
   </div>
@@ -23,14 +25,18 @@
           <img class="driver-detail-image" src="{{ driver?.image }}" alt="{{ driver?.name }}" />
         </div>
         <div fxFlex="40">
+          <p><b>Team:</b> {{ driver?.team }}</p>
           <p><b>Birthday:</b> {{ driver?.birthdate | date: 'd MMMM y' }}</p>
-          <p><b>Nationality:</b> {{ driver?.nationality }}</p>
+          <p><b>Nationality:</b> {{ driver?.country }}</p>
+          <p><b>Podiums:</b> {{ driver?.podiums }}</p>
+          <p><b>Points:</b> {{ driver?.points }}</p>
+          <p><b>World Championships:</b> {{ driver?.worldChampionships }}</p>
         </div>
       </div>
       <div *ngIf="driver?.teams?.length">
         <mat-divider></mat-divider>
         <div class="driver-table">
-          <h3>Driver's Season:</h3>
+          <h3>Driver Season:</h3>
           <table
             mat-table
             [dataSource]="dataSource"

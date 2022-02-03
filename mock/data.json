@@ -7,7 +7,7 @@
     "firstName": "Radek",
     "surName": "Tkac",
     "email": "test@example.com",
-    "favouriteTeamId": 13
+    "favouriteTeamId": 3
   },
   "teams": {
     "get": "teams",

@@ -17,7 +17,7 @@ import { ModalComponent } from 'src/app/components/modal/modal.component';
   styleUrls: ['./teams-list.component.scss'],
 })
 export class TeamsListComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['logo', 'name', 'president', 'director', 'actions'];
+  displayedColumns: string[] = ['logo', 'name', 'base', 'teamChief', 'actions'];
   isLoading = false;
   isLoaded = false;
   error!: string;

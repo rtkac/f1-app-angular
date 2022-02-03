@@ -47,8 +47,8 @@
             </mat-form-field>
             <mat-form-field>
               <mat-label>Last name</mat-label>
-              <input matInput placeholder="Enter last name" formControlName="surName" />
-              <mat-error *ngIf="profileEditForm.get('surName')?.errors?.['required']">
+              <input matInput placeholder="Enter last name" formControlName="lastName" />
+              <mat-error *ngIf="profileEditForm.get('lastName')?.errors?.['required']">
                 Last name is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -66,7 +66,12 @@
               <mat-label>Favourite team</mat-label>
               <mat-select formControlName="favouriteTeamId">
                 <mat-option *ngFor="let team of teams" [value]="team.id">
-                  {{ team.name }}
+                  <div class="profile-edit-option">
+                    <span class="profile-edit-option-logo">
+                      <img src="{{ team.logo }}" alt="{{ team.name }}" />
+                    </span>
+                    {{ team.fullName }}
+                  </div>
                 </mat-option>
               </mat-select>
             </mat-form-field>

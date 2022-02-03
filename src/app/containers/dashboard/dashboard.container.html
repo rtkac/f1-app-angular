@@ -1,6 +1,6 @@
 <div class="container container--primary">
   <div class="loading" *ngIf="isLoading && !isLoaded && !error">
-    <mat-spinner [diameter]="70"></mat-spinner>
+    <mat-spinner [diameter]="70" color="warn"></mat-spinner>
   </div>
 
   <app-init-error *ngIf="!!error" errorMessage="{{error}}"></app-init-error>

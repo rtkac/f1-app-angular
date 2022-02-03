@@ -33,7 +33,7 @@ export class FetchDriver implements Action {
 export class FetchDriverSuccess implements Action {
   readonly type = FETCH_DRIVER_SUCCESS;
 
-  constructor(public payload: DriverDetail[]) {}
+  constructor(public payload: DriverDetail | null) {}
 }
 
 export class FetchDriverFailed implements Action {

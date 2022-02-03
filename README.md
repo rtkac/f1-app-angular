@@ -1,5 +1,10 @@
 # F1App
 
+login: f1@example.com
+password: f123456
+
+source: https://www.formula1.com
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
 
 ## Development server

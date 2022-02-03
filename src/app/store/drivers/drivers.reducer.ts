@@ -56,7 +56,7 @@ export function driversReducer(state = initialState, action: DriversActions.Driv
         ...state,
         isLoadingDetail: false,
         isLoadedDetail: true,
-        driversDetail: [...state.driversDetail, ...action.payload],
+        driversDetail: action.payload ? [...state.driversDetail, action.payload] : [...state.driversDetail],
       };
     case DriversActions.FETCH_DRIVER_FAILED:
       return {

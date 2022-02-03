@@ -1,6 +1,6 @@
 <div class="container container--primary" *ngIf="isLoading && !isLoaded && !error">
   <div class="loading">
-    <mat-spinner [diameter]="70"></mat-spinner>
+    <mat-spinner [diameter]="70" color="warn"></mat-spinner>
   </div>
 </div>
 <div class="container container--primary" *ngIf="!!error">
@@ -11,7 +11,7 @@
   <div class="team-detail-top" [ngClass]="{ 'team-detail-top-fav': isFavourite }">
     <div class="container">
       <div class="team-detail-top-holder">
-        <h3>{{ team.name }} Details</h3>
+        <h3>{{ team.fullName }} Details</h3>
         <mat-icon *ngIf="isFavourite">favorite_border</mat-icon>
       </div>
     </div>
@@ -21,14 +21,18 @@
     <div class="container">
       <div class="team-detail-content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
         <div fxFlex="60" fxFlex.xs="100">
-          <img class="team-detail-logo" src="{{ team.logo }}" alt="{{ team.name }}" />
+          <img class="team-detail-logo" src="{{ team.logo }}" alt="{{ team.fullName }}" />
         </div>
         <div fxFlex="40">
-          <p><b>President:</b> {{ team.president }}</p>
-          <p><b>Director:</b> {{ team.director }}</p>
-          <p><b>Technical Manager:</b> {{ team.technical_manager }}</p>
-          <p><b>Engine:</b> {{ team.engine }}</p>
-          <p><b>Tyres:</b> {{ team.tyres }}</p>
+          <p><b>Base:</b> {{ team.base }}</p>
+          <p><b>Team Chief:</b> {{ team.teamChief }}</p>
+          <p><b>Technical Chief:</b> {{ team.technicalChief }}</p>
+          <p><b>Chasis:</b> {{ team.chasis }}</p>
+          <p><b>Power Unit:</b> {{ team.powerUnit }}</p>
+          <p><b>First Team Entry:</b> {{ team.firstTeamEntry }}</p>
+          <p><b>World Championships:</b> {{ team.worldChampionships }}</p>
+          <p><b>Pole Positions:</b> {{ team.polePositions }}</p>
+          <p><b>Fastest Laps:</b> {{ team.fastestLaps }}</p>
         </div>
       </div>
       <div *ngIf="!isFavourite">
@@ -37,6 +41,29 @@
           <button mat-raised-button color="warn" (click)="setAsFavourite()">Set as favourite</button>
         </div>
       </div>
+      <mat-divider></mat-divider>
+      <div class="team-detail-drivers">
+        <h3><b>Drivers:</b></h3>
+        <div fxLayout="row wrap" fxLayout.xs="column" fxFlexFill>
+          <app-driver-card
+            fxFlex="23"
+            fxFlex.sm="33"
+            *ngFor="let driver of team.drivers"
+            [driver]="driver"
+          ></app-driver-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-detail" *ngIf="!team && !isLoading && isLoaded && !error">
+  <div class="team-detail-not-found">
+    <div class="container">
+      <h3>
+        Team with id <b>{{ id }}</b> not found!
+      </h3>
+      <button mat-raised-button color="warn" routerLink="/teams">Go to teams</button>
     </div>
   </div>
 </div>

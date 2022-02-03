@@ -29,7 +29,7 @@ export class DriversFacade {
     this.store.dispatch(new DriversActions.FetchDriver(id));
   }
 
-  fetchDriverSuccess(driversDetail: DriverDetail[]) {
+  fetchDriverSuccess(driversDetail: DriverDetail) {
     this.store.dispatch(new DriversActions.FetchDriverSuccess(driversDetail));
   }
 

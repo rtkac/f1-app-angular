@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { switchMap, map, catchError, withLatestFrom, filter } from 'rxjs/operators';
 
 import { driverEndpoint, driversEndpoint } from 'src/app/config/endopoints';
-import { DriverDetailResponse, DriversResponse } from 'src/app/models/drivers.model';
+import { DriverDetail, Driver } from 'src/app/models/drivers.model';
 
 import * as fromDrivers from './drivers.reducer';
 import * as DriversActions from './drivers.actions';
@@ -23,9 +23,9 @@ export class DriversEffects {
         return !isLoaded;
       }),
       switchMap(() => {
-        return this.http.get<DriversResponse>(driversEndpoint).pipe(
+        return this.http.get<Driver[]>(driversEndpoint).pipe(
           map((driversResponse) => {
-            return new DriversActions.FetchDriversSuccess(driversResponse.response);
+            return new DriversActions.FetchDriversSuccess(driversResponse);
           }),
           catchError(() => {
             return of(new DriversActions.FetchDriversFailed());
@@ -48,11 +48,11 @@ export class DriversEffects {
       ),
       switchMap(({ action, driversStore }) => {
         if (driversStore.driversDetail.find((driver) => driver.id === action.payload)) {
-          return [new DriversActions.FetchDriverSuccess([])];
+          return [new DriversActions.FetchDriverSuccess(null)];
         }
-        return this.http.get<DriverDetailResponse>(driverEndpoint(action.payload)).pipe(
+        return this.http.get<DriverDetail>(driverEndpoint(action.payload)).pipe(
           map((driverResponse) => {
-            return new DriversActions.FetchDriverSuccess(driverResponse.response);
+            return new DriversActions.FetchDriverSuccess(driverResponse);
           }),
           catchError(() => {
             return of(new DriversActions.FetchDriverFailed());

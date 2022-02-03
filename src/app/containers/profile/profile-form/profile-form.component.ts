@@ -54,7 +54,7 @@ export class ProfileFormComponent implements OnInit, OnDestroy {
 
     this.profileEditForm.patchValue({
       firstName: this.user?.firstName,
-      surName: this.user?.surName,
+      lastName: this.user?.lastName,
       email: this.user?.email,
       favouriteTeamId: this.user?.favouriteTeamId,
     });
@@ -80,7 +80,7 @@ export class ProfileFormComponent implements OnInit, OnDestroy {
     if (closeForm) {
       this.profileEditForm.reset({
         firstName: this.user?.firstName,
-        surName: this.user?.surName,
+        lastName: this.user?.lastName,
         email: this.user?.email,
         favouriteTeamId: this.user?.favouriteTeamId,
       });
@@ -90,7 +90,7 @@ export class ProfileFormComponent implements OnInit, OnDestroy {
   private initForm(): void {
     this.profileEditForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
-      surName: new FormControl(null, Validators.required),
+      lastName: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       favouriteTeamId: new FormControl(null, Validators.required),
     });

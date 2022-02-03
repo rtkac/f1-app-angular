@@ -18,7 +18,7 @@
           {{ password?.errors?.['minlength']['requiredLength'] }} characters is required
         </mat-error>
       </mat-form-field>
-      <button mat-flat-button color="primary" [disabled]="isLoading">
+      <button mat-flat-button color="warn" [disabled]="isLoading">
         Submit
         <mat-icon *ngIf="isLoading">
           <mat-spinner color="warn" diameter="20"></mat-spinner>

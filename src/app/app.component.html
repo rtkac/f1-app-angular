@@ -1,7 +1,9 @@
 <div class="app-component">
-  <div *ngIf="isInitLoading">
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    <app-init-loader></app-init-loader>
+  <div class="app-loading" *ngIf="isInitLoading">
+    <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+    <span>
+      <img src="../assets/img/f1-car.gif" alt="F1 car" />
+    </span>
   </div>
 
   <div class="container container--primary" *ngIf="isInitError">
